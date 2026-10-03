@@ -770,42 +770,39 @@
     font-size: 1.2rem;
   }
 
-  /* ===== DEPOIMENTOS ===== */
+  /* ===== AVALIAÇÕES / DEPOIMENTOS ===== */
   .depoimentos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    max-width: 1100px;
+    max-width: 1150px;
     margin: 0 auto;
   }
+
   .depoimento-card {
     background: var(--preto-suave);
     border: 1px solid #1F1F1F;
     border-radius: 12px;
-    padding: 35px 30px;
+    padding: 32px 30px;
     transition: all 0.4s ease;
     position: relative;
   }
-  .depoimento-card::before {
-    content: '"';
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: var(--amarelo);
-    opacity: 0.15;
-    position: absolute;
-    top: 10px; left: 20px;
-    line-height: 1;
-  }
   .depoimento-card:hover {
-    border-color: rgba(255, 212, 0, 0.2);
+    border-color: rgba(255, 212, 0, 0.3);
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 212, 0, 0.05);
   }
-  .depoimento-estrelas { color: var(--amarelo); margin-bottom: 16px; font-size: 1rem; letter-spacing: 3px; }
-  .depoimento-texto { color: #BBB; font-style: italic; margin-bottom: 22px; font-weight: 300; position: relative; z-index: 1; }
-  .depoimento-autor { display: flex; align-items: center; gap: 14px; }
+
+  /* Topo do card: avatar + nome + info */
+  .depoimento-topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
   .depoimento-avatar {
-    width: 46px; height: 46px;
+    width: 48px; height: 48px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
     display: flex; align-items: center; justify-content: center;
@@ -813,9 +810,79 @@
     font-size: 1.3rem;
     color: var(--preto);
     flex-shrink: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
-  .depoimento-nome { font-weight: 600; font-size: 0.95rem; color: var(--branco); }
-  .depoimento-cargo { font-size: 0.8rem; color: #666; }
+
+  .depoimento-avatar-img {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 212, 0, 0.3);
+  }
+
+  .depoimento-dados {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .depoimento-nome {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--branco);
+    line-height: 1.2;
+  }
+
+  .depoimento-meta {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 2px;
+  }
+
+  /* Linha de estrelas + data */
+  .depoimento-linha-avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .depoimento-estrelas {
+    color: var(--amarelo);
+    font-size: 1.05rem;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .depoimento-data {
+    font-size: 0.82rem;
+    color: #666;
+    font-weight: 300;
+  }
+
+  .depoimento-texto {
+    color: #CCC;
+    font-size: 0.97rem;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* Botão extra abaixo dos depoimentos */
+  .avaliacoes-cta {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .avaliacoes-cta p {
+    color: #999;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
 
   /* ===== CTA AGENDAMENTO ===== */
   .cta-agendamento {
@@ -1071,16 +1138,21 @@
     }
     .mapa-cta .icone { font-size: 1rem; }
 
-    /* DEPOIMENTOS */
+    /* ===== AVALIAÇÕES - MOBILE ===== */
     .depoimentos-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
     }
-    .depoimento-card { padding: 22px 18px; }
-    .depoimento-texto { font-size: 0.85rem; margin-bottom: 14px; }
-    .depoimento-avatar { width: 38px; height: 38px; font-size: 1.1rem; }
-    .depoimento-nome { font-size: 0.85rem; }
-    .depoimento-cargo { font-size: 0.72rem; }
+    .depoimento-card { padding: 20px 18px; }
+    .depoimento-avatar,
+    .depoimento-avatar-img { width: 42px; height: 42px; }
+    .depoimento-avatar { font-size: 1.1rem; }
+    .depoimento-nome { font-size: 0.9rem; }
+    .depoimento-meta { font-size: 0.72rem; }
+    .depoimento-estrelas { font-size: 0.95rem; letter-spacing: 2px; }
+    .depoimento-data { font-size: 0.75rem; }
+    .depoimento-texto { font-size: 0.88rem; line-height: 1.6; }
+    .avaliacoes-cta p { font-size: 0.9rem; }
 
     /* TABELA DE PREÇOS */
     .tabela-wrapper { max-width: 100%; border-radius: 12px; }
@@ -1156,7 +1228,7 @@
     <a href="#equipe" class="nav-link">Equipe</a>
     <a href="#galeria" class="nav-link">Galeria</a>
     <a href="#localizacao" class="nav-link">Localização</a>
-    <a href="#horarios" class="nav-link">Horários</a>
+    <a href="#avaliacoes" class="nav-link">Avaliações</a>
     <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="btn btn-preenchido">Agende Aqui</a>
   </nav>
   <button class="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -1379,47 +1451,69 @@
   </div>
 </section>
 
-<!-- ===== DEPOIMENTOS ===== -->
-<section>
+<!-- ===== AVALIAÇÕES ===== -->
+<section id="avaliacoes">
   <div class="secao-titulo reveal">
     <h2>O QUE DIZEM <span>NOSSOS CLIENTES</span></h2>
     <div class="linha-decorativa"></div>
+    <p>Avaliações reais do Google</p>
   </div>
 
   <div class="depoimentos-grid">
+
+    <!-- HENRIQUE MARTINS -->
     <div class="depoimento-card reveal delay-1">
-      <div class="depoimento-estrelas">★★★★★</div>
-      <p class="depoimento-texto">Melhor barbearia da região. Atendimento impecável e o resultado sempre supera minhas expectativas. Recomendo demais!</p>
-      <div class="depoimento-autor">
-        <div class="depoimento-avatar">RS</div>
-        <div>
-          <div class="depoimento-nome">Rafael Silva</div>
-          <div class="depoimento-cargo">Cliente há 2 anos</div>
+      <div class="depoimento-topo">
+        <div class="depoimento-avatar">HM</div>
+        <div class="depoimento-dados">
+          <div class="depoimento-nome">Henrique Martins</div>
+          <div class="depoimento-meta">3 avaliações</div>
         </div>
       </div>
+      <div class="depoimento-linha-avaliacao">
+        <span class="depoimento-estrelas">★★★★★</span>
+        <span class="depoimento-data">2 anos atrás</span>
+      </div>
+      <p class="depoimento-texto">A melhor barbearia de Itaguaí, profissionais super qualificados e atenciosos. Trabalho feito visando até os mínimos detalhes. Recomendo, não vão se arrepender...</p>
     </div>
+
+    <!-- JEFERSON SILVA -->
     <div class="depoimento-card reveal delay-2">
-      <div class="depoimento-estrelas">★★★★★</div>
-      <p class="depoimento-texto">Ambiente top, profissionais qualificados e um atendimento que faz toda a diferença. Saio sempre com o visual renovado.</p>
-      <div class="depoimento-autor">
-        <div class="depoimento-avatar">LC</div>
-        <div>
-          <div class="depoimento-nome">Lucas Costa</div>
-          <div class="depoimento-cargo">Cliente fiel</div>
+      <div class="depoimento-topo">
+        <div class="depoimento-avatar">JS</div>
+        <div class="depoimento-dados">
+          <div class="depoimento-nome">Jeferson Silva</div>
+          <div class="depoimento-meta">Local Guide · 10 avaliações</div>
         </div>
       </div>
+      <div class="depoimento-linha-avaliacao">
+        <span class="depoimento-estrelas">★★★★★</span>
+        <span class="depoimento-data">um ano atrás</span>
+      </div>
+      <p class="depoimento-texto">Bem organizado com uma ótima recepção, eles oferecem café, suco, água o que tiver lá. A barbearia funciona com agendamento então não adianta chegar lá e querer cortar.</p>
     </div>
+
+    <!-- LUCAS GIOJA -->
     <div class="depoimento-card reveal delay-3">
-      <div class="depoimento-estrelas">★★★★★</div>
-      <p class="depoimento-texto">Já testei várias barbearias e essa é disparada a melhor. Atendimento pontual, corte perfeito e preço justo.</p>
-      <div class="depoimento-autor">
-        <div class="depoimento-avatar">PA</div>
-        <div>
-          <div class="depoimento-nome">Pedro Almeida</div>
-          <div class="depoimento-cargo">Cliente há 1 ano</div>
+      <div class="depoimento-topo">
+        <div class="depoimento-avatar">LG</div>
+        <div class="depoimento-dados">
+          <div class="depoimento-nome">Lucas Gioja</div>
+          <div class="depoimento-meta">Local Guide · 11 avaliações</div>
         </div>
       </div>
+      <div class="depoimento-linha-avaliacao">
+        <span class="depoimento-estrelas">★★★★★</span>
+        <span class="depoimento-data">2 anos atrás</span>
+      </div>
+      <p class="depoimento-texto">Essa é a melhor barbearia da cidade! Atendimento dos meninos é diferenciado, serviço de qualidade e preço justo! Todos eles mandam muito no corte. O ambiente é super aconchegante, galera é boa de conversa, podem ir que não vão se arrepender!</p>
     </div>
+
+  </div>
+
+  <div class="avaliacoes-cta reveal delay-4">
+    <p>Quer ver mais avaliações ou deixar a sua?</p>
+    <a href="https://maps.app.goo.gl/aWVYe1aPDiULSRis6?g_st=ic" target="_blank" rel="noopener" class="btn btn-contorno">Ver no Google Maps</a>
   </div>
 </section>
 
@@ -1477,6 +1571,7 @@
       <a href="#equipe">Equipe</a>
       <a href="#galeria">Galeria</a>
       <a href="#localizacao">Localização</a>
+      <a href="#avaliacoes">Avaliações</a>
       <a href="#horarios">Horários</a>
     </div>
 
