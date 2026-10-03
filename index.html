@@ -95,7 +95,7 @@
   }
   .logo-texto span { color: var(--amarelo); }
 
-  nav { display: flex; gap: 28px; align-items: center; }
+  nav { display: flex; gap: 26px; align-items: center; }
 
   .nav-link {
     font-size: 1.05rem;
@@ -625,6 +625,151 @@
   }
   .galeria-item:hover .galeria-legenda { transform: translateY(0); }
 
+  /* ===== LOCALIZAÇÃO ===== */
+  .localizacao {
+    background: var(--preto-suave);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .localizacao::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 212, 0, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .localizacao-conteudo {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mapa-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 212, 0, 0.08);
+    border: 2px solid rgba(255, 212, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    display: block;
+    aspect-ratio: 16/10;
+    background: #0A0A0A;
+  }
+
+  .mapa-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+    filter: brightness(0.85) saturate(1.1);
+  }
+
+  .mapa-wrapper:hover {
+    transform: translateY(-8px);
+    border-color: var(--amarelo);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), 0 0 80px rgba(255, 212, 0, 0.25);
+  }
+
+  .mapa-wrapper:hover img {
+    transform: scale(1.06);
+    filter: brightness(1) saturate(1.2);
+  }
+
+  .mapa-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.2) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: background 0.5s ease;
+    z-index: 2;
+  }
+
+  .mapa-wrapper:hover .mapa-overlay {
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 50%, rgba(255, 212, 0, 0.08) 100%);
+  }
+
+  .mapa-pin {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 3.5rem;
+    filter: drop-shadow(0 5px 20px rgba(255, 212, 0, 0.6));
+    animation: pulsarPin 2s ease-in-out infinite;
+    z-index: 3;
+    transition: transform 0.5s ease;
+  }
+
+  .mapa-wrapper:hover .mapa-pin {
+    transform: translate(-50%, -110%) scale(1.15);
+  }
+
+  @keyframes pulsarPin {
+    0%, 100% { filter: drop-shadow(0 5px 20px rgba(255, 212, 0, 0.6)); }
+    50% { filter: drop-shadow(0 5px 35px rgba(255, 212, 0, 1)); }
+  }
+
+  .mapa-info {
+    text-align: center;
+    position: relative;
+    z-index: 4;
+    width: 100%;
+  }
+
+  .mapa-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--branco);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    transition: color 0.4s ease;
+  }
+
+  .mapa-wrapper:hover .mapa-titulo { color: var(--amarelo); }
+
+  .mapa-endereco {
+    color: #CCC;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+
+  .mapa-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: var(--amarelo);
+    color: var(--preto);
+    border: 2px solid var(--amarelo);
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+  }
+
+  .mapa-wrapper:hover .mapa-cta {
+    background: var(--preto);
+    color: var(--amarelo);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 212, 0, 0.4);
+  }
+
+  .mapa-cta .icone {
+    font-size: 1.2rem;
+  }
+
   /* ===== DEPOIMENTOS ===== */
   .depoimentos-grid {
     display: grid;
@@ -910,6 +1055,22 @@
       letter-spacing: 1px;
     }
 
+    /* ===== LOCALIZAÇÃO - MOBILE ===== */
+    .mapa-wrapper {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+    }
+    .mapa-overlay { padding: 18px 14px; }
+    .mapa-pin { font-size: 2.6rem; top: 40%; }
+    .mapa-titulo { font-size: 1.4rem; letter-spacing: 2px; }
+    .mapa-endereco { font-size: 0.85rem; margin-bottom: 10px; }
+    .mapa-cta {
+      font-size: 0.9rem;
+      padding: 9px 18px;
+      letter-spacing: 1px;
+    }
+    .mapa-cta .icone { font-size: 1rem; }
+
     /* DEPOIMENTOS */
     .depoimentos-grid {
       grid-template-columns: 1fr;
@@ -975,6 +1136,9 @@
     .barbeiro-link { font-size: 0.65rem; padding: 7px 3px; }
     .galeria-legenda { font-size: 0.6rem; }
     .horario-dia { font-size: 0.95rem; }
+    .mapa-titulo { font-size: 1.2rem; }
+    .mapa-pin { font-size: 2.2rem; }
+    .mapa-cta { font-size: 0.8rem; padding: 8px 14px; }
   }
 </style>
 </head>
@@ -990,8 +1154,8 @@
     <a href="#servicos" class="nav-link">Serviços</a>
     <a href="#precos" class="nav-link">Preços</a>
     <a href="#equipe" class="nav-link">Equipe</a>
-    <a href="#sobre" class="nav-link">Sobre</a>
     <a href="#galeria" class="nav-link">Galeria</a>
+    <a href="#localizacao" class="nav-link">Localização</a>
     <a href="#horarios" class="nav-link">Horários</a>
     <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="btn btn-preenchido">Agende Aqui</a>
   </nav>
@@ -1189,6 +1353,32 @@
   </div>
 </section>
 
+<!-- ===== LOCALIZAÇÃO ===== -->
+<section id="localizacao" class="localizacao">
+  <div class="secao-titulo reveal">
+    <h2>NOSSA <span>LOCALIZAÇÃO</span></h2>
+    <div class="linha-decorativa"></div>
+    <p>Venha nos visitar — clique no mapa para abrir no Google Maps</p>
+  </div>
+
+  <div class="localizacao-conteudo">
+    <a href="https://maps.app.goo.gl/aWVYe1aPDiULSRis6?g_st=ic" target="_blank" rel="noopener" class="mapa-wrapper reveal-zoom">
+      <img src="localizacao.jpg" alt="Localização The Barber Studio no mapa" />
+      <span class="mapa-pin">📍</span>
+      <div class="mapa-overlay">
+        <div class="mapa-info">
+          <div class="mapa-titulo">THE BARBER STUDIO</div>
+          <div class="mapa-endereco">Estrada Teixeiras, 338</div>
+          <span class="mapa-cta">
+            <span class="icone">🗺️</span>
+            Abrir no Google Maps
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- ===== DEPOIMENTOS ===== -->
 <section>
   <div class="secao-titulo reveal">
@@ -1285,14 +1475,15 @@
       <a href="#servicos">Serviços</a>
       <a href="#precos">Preços</a>
       <a href="#equipe">Equipe</a>
-      <a href="#sobre">Sobre</a>
       <a href="#galeria">Galeria</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#horarios">Horários</a>
     </div>
 
     <div class="footer-col">
       <h4>CONTATO</h4>
       <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener">Agende Aqui</a>
-      <p>📍 Estrada Teixeiras, 338</p>
+      <a href="https://maps.app.goo.gl/aWVYe1aPDiULSRis6?g_st=ic" target="_blank" rel="noopener">📍 Estrada Teixeiras, 338</a>
     </div>
 
     <div class="footer-col">
