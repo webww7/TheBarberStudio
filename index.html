@@ -834,13 +834,147 @@
     .hero-botoes .btn { width: 100%; max-width: 300px; text-align: center; }
   }
 
-  @media (max-width: 500px) {
-    section { padding: 70px 5%; }
-    .servicos-grid, .depoimentos-grid, .equipe-grid { grid-template-columns: 1fr; }
-    .galeria-grid { grid-template-columns: 1fr 1fr; }
-    .sobre-destaques { gap: 20px; }
-    .hero-logo { width: 120px; height: 120px; }
+  /* ===== MOBILE (até 700px) ===== */
+  @media (max-width: 700px) {
+    section { padding: 60px 4%; }
+
+    .secao-titulo { margin-bottom: 35px; }
+    .secao-titulo h2 { font-size: 1.9rem; }
+    .secao-titulo p { font-size: 0.85rem; margin-top: 10px; }
+    .secao-titulo .linha-decorativa { width: 50px; height: 3px; }
+
+    /* HERO */
+    .hero { padding: 100px 4% 60px; }
+    .hero-logo { width: 100px; height: 100px; margin-bottom: 14px; }
+    .hero h1 { font-size: 2.6rem; }
+    .hero p { font-size: 0.9rem; margin-bottom: 26px; }
+    .hero-botoes { gap: 12px; }
+    .hero-botoes .btn { padding: 10px 20px; font-size: 0.95rem; }
+    .scroll-indicador { display: none; }
+
+    /* ===== SERVIÇOS - 3 COLUNAS ===== */
+    .servicos-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 100%;
+    }
+    .servico-card {
+      padding: 14px 8px;
+      border-radius: 8px;
+    }
+    .servico-icone { font-size: 1.5rem; margin-bottom: 6px; }
+    .servico-card h3 { font-size: 0.85rem; margin-bottom: 4px; letter-spacing: 1px; }
+    .servico-card p { font-size: 0.65rem; margin-bottom: 8px; line-height: 1.3; display: none; }
+    .servico-preco { font-size: 1rem; }
+
+    /* ===== EQUIPE - 3 COLUNAS ===== */
+    .equipe-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 100%;
+    }
+    .barbeiro-card { border-radius: 8px; }
+    .barbeiro-info {
+      padding: 0 8px 14px;
+      margin-top: -30px;
+    }
+    .barbeiro-nome-link {
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .barbeiro-cargo {
+      font-size: 0.55rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .barbeiro-link {
+      padding: 8px 4px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      gap: 4px;
+      border-width: 1.5px;
+    }
+    .barbeiro-link .seta { font-size: 0.8rem; }
+
+    /* ===== GALERIA - 3 COLUNAS ===== */
+    .galeria-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 100%;
+    }
+    .galeria-item { border-radius: 8px; }
+    .galeria-legenda {
+      font-size: 0.65rem;
+      padding: 8px;
+      letter-spacing: 1px;
+    }
+
+    /* DEPOIMENTOS */
+    .depoimentos-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .depoimento-card { padding: 22px 18px; }
+    .depoimento-texto { font-size: 0.85rem; margin-bottom: 14px; }
+    .depoimento-avatar { width: 38px; height: 38px; font-size: 1.1rem; }
+    .depoimento-nome { font-size: 0.85rem; }
+    .depoimento-cargo { font-size: 0.72rem; }
+
+    /* TABELA DE PREÇOS */
+    .tabela-wrapper { max-width: 100%; border-radius: 12px; }
+    .tabela-cta p { font-size: 0.9rem; }
+
+    /* SOBRE */
+    .sobre-texto h2 { font-size: 1.7rem; }
+    .sobre-texto p { font-size: 0.88rem; }
+    .sobre-destaques { gap: 16px; justify-content: center; }
+    .sobre-destaque-item .numero { font-size: 1.8rem; }
+    .sobre-destaque-item .rotulo { font-size: 0.65rem; }
+
+    /* CTA */
+    .cta-agendamento h2 { font-size: 1.9rem; }
+    .cta-agendamento p { font-size: 0.88rem; }
+    .cta-agendamento .btn { font-size: 1rem; padding: 14px 32px; }
+
+    /* HORÁRIOS - 2 COLUNAS */
+    .horarios-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .horario-card { padding: 18px 12px; }
+    .horario-dia { font-size: 1.05rem; letter-spacing: 1px; }
+    .horario-hora { font-size: 0.82rem; }
+
+    /* RODAPÉ */
+    footer { padding: 40px 5% 20px; }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 26px;
+      text-align: center;
+    }
+    .footer-logo { margin: 0 auto 12px; width: 70px; height: 70px; }
+    .footer-social { justify-content: center; }
+    .footer-col h4 { font-size: 1.15rem; margin-bottom: 12px; }
+    .footer-col p, .footer-col a { font-size: 0.85rem; }
+    .footer-base { font-size: 0.75rem; padding-top: 20px; }
+
+    /* HEADER */
+    .logo img { width: 42px; height: 42px; }
     .logo-texto { display: none; }
+
+    /* BOTÕES GERAIS */
+    .btn { font-size: 0.95rem; padding: 10px 22px; }
+  }
+
+  /* ===== MOBILE PEQUENO (até 400px) ===== */
+  @media (max-width: 400px) {
+    .servico-card h3 { font-size: 0.75rem; }
+    .servico-icone { font-size: 1.3rem; }
+    .barbeiro-nome-link { font-size: 0.95rem; }
+    .barbeiro-link { font-size: 0.65rem; padding: 7px 3px; }
+    .galeria-legenda { font-size: 0.6rem; }
+    .horario-dia { font-size: 0.95rem; }
   }
 </style>
 </head>
@@ -894,7 +1028,7 @@
   <div class="servicos-grid">
     <div class="servico-card reveal delay-1">
       <span class="servico-icone">✂️</span>
-      <h3>Corte Masculino</h3>
+      <h3>Corte</h3>
       <p>Corte personalizado de acordo com seu estilo, com acabamento impecável.</p>
       <div class="servico-preco">R$ 40</div>
     </div>
@@ -956,7 +1090,7 @@
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-nome-link">FILIPE</a>
         <span class="barbeiro-cargo">Barbeiro</span>
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-link">
-          <span class="txt">Agendar com Filipe</span>
+          <span class="txt">Agendar</span>
           <span class="seta">→</span>
         </a>
       </div>
@@ -971,7 +1105,7 @@
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-nome-link">ABRAÃO</a>
         <span class="barbeiro-cargo">Barbeiro</span>
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-link">
-          <span class="txt">Agendar com Abraão</span>
+          <span class="txt">Agendar</span>
           <span class="seta">→</span>
         </a>
       </div>
@@ -986,7 +1120,7 @@
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-nome-link">MATHEUS</a>
         <span class="barbeiro-cargo">Barbeiro</span>
         <a href="https://cashbarber.com.br/thebarberstudio" target="_blank" rel="noopener" class="barbeiro-link">
-          <span class="txt">Agendar com Matheus</span>
+          <span class="txt">Agendar</span>
           <span class="seta">→</span>
         </a>
       </div>
@@ -1034,23 +1168,23 @@
   <div class="galeria-grid">
     <div class="galeria-item reveal-zoom delay-1">
       <img src="galeria1.jpg" alt="Corte ondulado moderno" />
-      <div class="galeria-legenda">Já garantiu sua régua?</div>
+      <div class="galeria-legenda">Sua Régua</div>
     </div>
     <div class="galeria-item reveal-zoom delay-2">
       <img src="galeria2.jpg" alt="Produtos premium The Barber Studio" />
-      <div class="galeria-legenda">Produtos Premium</div>
+      <div class="galeria-legenda">Premium</div>
     </div>
     <div class="galeria-item reveal-zoom delay-3">
       <img src="galeria3.jpg" alt="Ambiente da barbearia" />
-      <div class="galeria-legenda">Nosso Ambiente</div>
+      <div class="galeria-legenda">Ambiente</div>
     </div>
     <div class="galeria-item reveal-zoom delay-4">
       <img src="galeria4.jpg" alt="Barba feita na cadeira" />
-      <div class="galeria-legenda">Barba na Régua</div>
+      <div class="galeria-legenda">Barba</div>
     </div>
     <div class="galeria-item reveal-zoom delay-5">
       <img src="galeria5.jpg" alt="Corte degradê com topete" />
-      <div class="galeria-legenda">Estilo e Precisão</div>
+      <div class="galeria-legenda">Estilo</div>
     </div>
   </div>
 </section>
@@ -1226,7 +1360,6 @@
       observer.observe(el);
     });
   } else {
-    // Fallback para navegadores antigos
     elementosAnimados.forEach(function(el) {
       el.classList.add('ativo');
     });
